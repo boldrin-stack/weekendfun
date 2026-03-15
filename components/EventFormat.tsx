@@ -52,7 +52,7 @@ export default function EventFormat() {
         </motion.h2>
 
         {/* Day cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {days.map((day, i) => (
             <motion.div
               key={day.day}
@@ -95,26 +95,6 @@ export default function EventFormat() {
           ))}
         </div>
 
-        {/* Highlight strip */}
-        <motion.div
-          custom={4}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={FADE_UP}
-          className="rounded-2xl p-6 border border-[#BA7517]/30"
-          style={{ background: "rgba(186, 117, 23, 0.08)" }}
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <span className="text-2xl">🌱</span>
-            <div>
-              <p className="text-[#BA7517] font-medium mb-1">Pre-event</p>
-              <p className="text-[#F6F5F1]/65 text-sm leading-relaxed">
-                Weekly AI × Web3 build sprints at Tinker Space starting May 2026.
-                Free LLM API grants for all participants.
-              </p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )
