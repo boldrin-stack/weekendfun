@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero"
+import KeralaScene from "@/components/KeralaScene"
 import About from "@/components/About"
 import EventFormat from "@/components/EventFormat"
 import Tracks from "@/components/Tracks"
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <KeralaScene />
       <About />
       <EventFormat />
       <Tracks />

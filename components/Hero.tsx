@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { HERO_PILLS } from "@/lib/constants"
 import { HERO_FADE_UP } from "@/lib/animations"
+import NamasteHands from "@/components/NamasteHands"
+import Elephant from "@/components/Elephant"
 
 const WAITLIST_STORAGE_KEY = "eth_kochi_waitlist_count"
 const BASE_COUNT = 47
@@ -162,6 +164,21 @@ export default function Hero() {
             Early bird passes, speaker drops &amp; updates — waitlist first.
           </p>
         </motion.div>
+      </div>
+
+      {/* Elephant — right side decoration */}
+      <div className="absolute bottom-0 right-4 lg:right-12 hidden md:block opacity-80">
+        <motion.div
+          animate={{ y: [0, -6, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Elephant />
+        </motion.div>
+      </div>
+
+      {/* Namaste hands — scroll-triggered, centered */}
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 hidden sm:block">
+        <NamasteHands />
       </div>
 
       {/* Scroll indicator */}
