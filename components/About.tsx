@@ -27,12 +27,32 @@ function StatNumber({ value, label }: { value: string; label: string }) {
   )
 }
 
+const ELEPHANT_VIDEO = "https://github.com/user-attachments/assets/794d188c-629d-49e4-9e5d-6ef89bd87188"
+
 export default function About() {
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
     <section ref={ref} id="about" className="py-24 sm:py-32 bg-[#F6F5F1]">
+      {/* Elephant video — full width, appears as section enters view */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+        className="w-full mb-12"
+      >
+        <video
+          src={ELEPHANT_VIDEO}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full object-cover"
+          style={{ maxHeight: "480px" }}
+        />
+      </motion.div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left: copy */}

@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { HERO_PILLS } from "@/lib/constants"
 import { HERO_FADE_UP } from "@/lib/animations"
-import Elephant from "@/components/Elephant"
 
 const VIDEO_URL =
   "https://github.com/user-attachments/assets/ea237255-d3d4-4249-8d6d-35c7f6053f4d"
@@ -185,16 +184,6 @@ export default function Hero() {
           <p className="text-sm text-white/35 max-w-[220px] leading-snug">
             Early bird passes, speaker drops &amp; updates — waitlist first.
           </p>
-        </motion.div>
-      </div>
-
-      {/* Elephant — floats over video, right side */}
-      <div className="absolute bottom-0 right-4 lg:right-12 hidden md:block" style={{ zIndex: 3 }}>
-        <motion.div
-          animate={{ y: [0, -6, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <Elephant />
         </motion.div>
       </div>
 
