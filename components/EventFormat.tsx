@@ -3,6 +3,7 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { FADE_UP } from "@/lib/animations"
+import ParticleCountdown from "@/components/ParticleCountdown"
 
 const days = [
   {
@@ -51,12 +52,23 @@ export default function EventFormat() {
           Two days.<br />One mission.
         </motion.h2>
 
+        {/* Particle countdown */}
+        <motion.div
+          custom={2}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={FADE_UP}
+          className="mb-12"
+        >
+          <ParticleCountdown />
+        </motion.div>
+
         {/* Day cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {days.map((day, i) => (
             <motion.div
               key={day.day}
-              custom={i + 2}
+              custom={i + 3}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
               variants={FADE_UP}

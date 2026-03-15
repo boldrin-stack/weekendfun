@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 import Nav from "@/components/Nav"
 import Footer from "@/components/Footer"
+import ElephantCursor from "@/components/ElephantCursor"
 
 export const metadata: Metadata = {
   title: "ETH Kochi 2026 — Where the backwaters meet the blockchain.",
@@ -40,6 +41,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <ElephantCursor />
         <Nav />
         <main>{children}</main>
         <Footer />

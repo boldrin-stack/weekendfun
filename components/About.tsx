@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion"
 import { STATS } from "@/lib/constants"
 import { useCountUp } from "@/lib/useCountUp"
 import { FADE_UP } from "@/lib/animations"
+import KeralaMap from "@/components/KeralaMap"
 
 function StatNumber({ value, label }: { value: string; label: string }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -81,8 +82,18 @@ export default function About() {
             </motion.p>
           </div>
 
-          {/* Right: stats */}
-          <div className="grid grid-cols-2 gap-6 pt-4">
+          {/* Right: Kerala map + stats */}
+          <div className="flex flex-col gap-8 pt-4">
+          <motion.div
+            custom={1}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            variants={FADE_UP}
+            className="flex justify-center"
+          >
+            <KeralaMap />
+          </motion.div>
+          <div className="grid grid-cols-2 gap-6">
             {STATS.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -95,6 +106,7 @@ export default function About() {
                 <StatNumber value={stat.number} label={stat.label} />
               </motion.div>
             ))}
+          </div>
           </div>
 
         </div>

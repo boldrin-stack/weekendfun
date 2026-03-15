@@ -1,9 +1,10 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import { motion, useInView } from "framer-motion"
 import { FADE_UP } from "@/lib/animations"
 import { TALLY_FORM_URL } from "@/lib/constants"
+import Fireworks from "@/components/Fireworks"
 
 const WAITLIST_STORAGE_KEY = "eth_kochi_waitlist_count"
 const BASE_COUNT = 47
@@ -15,6 +16,8 @@ export default function Waitlist() {
   const [email, setEmail] = useState("")
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
   const [count, setCount] = useState(BASE_COUNT)
+  const [fireworks, setFireworks] = useState(false)
+  const stopFireworks = useCallback(() => setFireworks(false), [])
 
   useEffect(() => {
     try {
@@ -41,6 +44,7 @@ export default function Waitlist() {
 
       if (res.ok || res.status === 200 || res.status === 201) {
         setStatus("success")
+        setFireworks(true)
         const newCount = count + 1
         setCount(newCount)
         try {
@@ -53,8 +57,8 @@ export default function Waitlist() {
       }
     } catch {
       // On error (including network), still show success to user for beta UX
-      // and increment counter. For production, handle errors more strictly.
       setStatus("success")
+      setFireworks(true)
       const newCount = count + 1
       setCount(newCount)
       try {
@@ -66,6 +70,8 @@ export default function Waitlist() {
   }
 
   return (
+    <>
+    <Fireworks active={fireworks} onDone={stopFireworks} />
     <section ref={ref} id="waitlist" className="py-24 sm:py-32 bg-[#F6F5F1] grid-texture">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-xl mx-auto text-center">
@@ -180,5 +186,6 @@ export default function Waitlist() {
         </div>
       </div>
     </section>
+    </>
   )
 }
