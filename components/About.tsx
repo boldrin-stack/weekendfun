@@ -34,27 +34,10 @@ export default function About() {
   const inView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} id="about" className="py-24 sm:py-32 bg-[#F6F5F1]">
-      {/* Elephant video — full width, appears as section enters view */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
-        className="w-full mb-12"
-      >
-        <video
-          src={ELEPHANT_VIDEO}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full object-cover"
-          style={{ maxHeight: "480px" }}
-        />
-      </motion.div>
-
+    <section ref={ref} id="about" className="py-24 sm:py-32 bg-[#F6F5F1] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-12 lg:gap-8 items-center">
+
           {/* Left: copy */}
           <div>
             <motion.p
@@ -96,8 +79,26 @@ export default function About() {
             </motion.p>
           </div>
 
+          {/* Centre: elephant video */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92, y: 30 }}
+            animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            className="flex justify-center"
+          >
+            <video
+              src={ELEPHANT_VIDEO}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-64 lg:w-80 xl:w-96 object-contain drop-shadow-2xl"
+              style={{ maxHeight: "520px" }}
+            />
+          </motion.div>
+
           {/* Right: stats */}
-          <div className="grid grid-cols-2 gap-8 pt-4">
+          <div className="grid grid-cols-2 gap-6">
             {STATS.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -111,6 +112,7 @@ export default function About() {
               </motion.div>
             ))}
           </div>
+
         </div>
       </div>
     </section>
