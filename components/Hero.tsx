@@ -4,8 +4,8 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { HERO_PILLS } from "@/lib/constants"
 import { HERO_FADE_UP } from "@/lib/animations"
-import NamasteHands from "@/components/NamasteHands"
 import Elephant from "@/components/Elephant"
+import NamasteVideo from "@/components/NamasteVideo"
 
 const WAITLIST_STORAGE_KEY = "eth_kochi_waitlist_count"
 const BASE_COUNT = 47
@@ -176,8 +176,10 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Namaste hands — full-width, slide in from edges */}
-      <NamasteHands />
+      {/* Namaste video — scroll-triggered, full-width bottom of hero */}
+      <NamasteVideo />
+
+      {/* SVG hands fallback hidden when video is present */}
 
       {/* Scroll indicator */}
       <motion.div
