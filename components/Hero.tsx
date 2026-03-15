@@ -176,10 +176,8 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Namaste hands — scroll-triggered, centered */}
-      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 hidden sm:block">
-        <NamasteHands />
-      </div>
+      {/* Namaste hands — full-width, slide in from edges */}
+      <NamasteHands />
 
       {/* Scroll indicator */}
       <motion.div
