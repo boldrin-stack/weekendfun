@@ -1,5 +1,5 @@
 {
-  "name": "weekendfun",
+  "name": "real-arabia",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -22,7 +22,6 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "vercel": "^50.37.0"
+    "typescript": "^5"
   }
 }
