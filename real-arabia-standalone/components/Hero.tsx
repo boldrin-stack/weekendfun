@@ -32,7 +32,7 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-screen overflow-hidden flex items-end"
+      className="relative w-full min-h-screen overflow-hidden"
       style={{ background: "var(--ra-dark)" }}
     >
       {/* ── Mashrabiya overlay ──────────────────────────────── */}
@@ -154,14 +154,15 @@ export default function Hero() {
         style={{ background: "linear-gradient(to bottom, transparent, var(--ra-gold), transparent)" }}
       />
 
-      {/* ── Foreground content ──────────────────────────────── */}
-      <div className="relative z-30 w-full px-6 md:px-16 pb-16 md:pb-24">
-        {/* Logo */}
+      {/* ── Foreground: full-height flex column ─────────────── */}
+      <div className="relative z-30 w-full flex flex-col min-h-screen px-6 md:px-16">
+
+        {/* Logo – top of the screen */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="absolute top-8 left-1/2 -translate-x-1/2 text-center"
+          className="pt-8 text-center"
         >
           <div className="ra-label mb-1">كوچي  ·  Kochi</div>
           <div
@@ -172,8 +173,11 @@ export default function Hero() {
           </div>
         </motion.div>
 
+        {/* Spacer pushes headline to bottom */}
+        <div className="flex-1" />
+
         {/* Headline */}
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-center pb-16 md:pb-24">
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -230,7 +234,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="flex flex-col items-center gap-2 pb-6"
         >
           <div className="ra-label" style={{ color: "rgba(201,151,58,0.5)" }}>scroll</div>
           <motion.div
