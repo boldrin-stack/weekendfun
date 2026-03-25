@@ -154,30 +154,25 @@ export default function Hero() {
         style={{ background: "linear-gradient(to bottom, transparent, var(--ra-gold), transparent)" }}
       />
 
-      {/* ── Foreground: full-height flex column ─────────────── */}
-      <div className="relative z-30 w-full flex flex-col min-h-screen px-6 md:px-16">
-
-        {/* Logo – top of the screen */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="pt-8 text-center"
+      {/* ── Logo — pinned to top of section ─────────────────── */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="absolute top-8 left-0 right-0 z-30 text-center pointer-events-none"
+      >
+        <div className="ra-label mb-1">كوچي  ·  Kochi</div>
+        <div
+          className="ra-display text-2xl md:text-3xl"
+          style={{ color: "var(--ra-gold)", letterSpacing: "0.08em" }}
         >
-          <div className="ra-label mb-1">كوچي  ·  Kochi</div>
-          <div
-            className="ra-display text-2xl md:text-3xl"
-            style={{ color: "var(--ra-gold)", letterSpacing: "0.08em" }}
-          >
-            ◆ REAL ARABIA ◆
-          </div>
-        </motion.div>
+          ◆ REAL ARABIA ◆
+        </div>
+      </motion.div>
 
-        {/* Spacer pushes headline to bottom */}
-        <div className="flex-1" />
-
-        {/* Headline */}
-        <div className="max-w-3xl mx-auto text-center pb-16 md:pb-24">
+      {/* ── Headline — pinned to bottom of section ───────────── */}
+      <div className="absolute bottom-0 left-0 right-0 z-30 px-6 md:px-16 pb-16 md:pb-20">
+        <div className="max-w-3xl mx-auto text-center">
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -191,7 +186,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.5, ease: "easeOut" }}
-            className="ra-display text-5xl md:text-7xl lg:text-8xl mb-6"
+            className="ra-display text-4xl md:text-6xl lg:text-7xl mb-6"
             style={{ color: "var(--ra-sand)" }}
           >
             Grilled to{" "}
@@ -205,7 +200,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="text-base md:text-lg mb-10 max-w-xl mx-auto"
+            className="text-base md:text-lg mb-8 max-w-xl mx-auto"
             style={{ color: "rgba(242,232,213,0.7)" }}
           >
             Authentic shawarma, al-faham grills, and Kerala-fused Arabic flavours —
@@ -234,7 +229,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
-          className="flex flex-col items-center gap-2 pb-6"
+          className="flex flex-col items-center gap-2 mt-8"
         >
           <div className="ra-label" style={{ color: "rgba(201,151,58,0.5)" }}>scroll</div>
           <motion.div
