@@ -9,7 +9,6 @@ import { motion, useInView } from "framer-motion"
 */
 
 const STATS = [
-  { value: 6,  suffix: "+",  label: "Outlets in Kochi",  icon: "🏪" },
   { value: 1,  suffix: "M+", label: "Meals Served",       icon: "🌯" },
   { value: 15, suffix: "+",  label: "Years of Flavour",   icon: "🔥" },
   { value: 50, suffix: "+",  label: "Menu Items",         icon: "📜" },
@@ -92,7 +91,7 @@ export default function StatsSection() {
     >
       <div className="ra-kasavu-top" />
 
-      <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4">
+      <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3">
         {STATS.map((stat, i) => (
           <StatCard key={stat.label} stat={stat} active={isInView} index={i} />
         ))}

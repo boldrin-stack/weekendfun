@@ -33,56 +33,6 @@ const OUTLETS = [
     roofColor: "#4A3020",
     wallColor: "#3D2510",
   },
-  {
-    id: 2,
-    name: "Real Arabia",
-    area: "Fort Kochi",
-    address: "Princess St, Fort Kochi, Kerala – 682 001",
-    mapUrl: "#",
-    swiggyUrl: "#",
-    roofColor: "#3A2A1A",
-    wallColor: "#2E1E0E",
-  },
-  {
-    id: 3,
-    name: "Real Arabia",
-    area: "Edappally",
-    address: "NH-66, Edappally Junction, Kochi – 682 024",
-    mapUrl: "#",
-    swiggyUrl: "#",
-    roofColor: "#4A3020",
-    wallColor: "#3D2510",
-  },
-  {
-    id: 4,
-    name: "Real Arabia",
-    area: "Kakkanad",
-    address: "Infopark Rd, Kakkanad, Kochi – 682 030",
-    mapUrl: "#",
-    swiggyUrl: "#",
-    roofColor: "#3A2A1A",
-    wallColor: "#2E1E0E",
-  },
-  {
-    id: 5,
-    name: "Real Arabia",
-    area: "Aluva",
-    address: "Market Rd, Aluva, Ernakulam – 683 101",
-    mapUrl: "#",
-    swiggyUrl: "#",
-    roofColor: "#4A3020",
-    wallColor: "#3D2510",
-  },
-  {
-    id: 6,
-    name: "Real Arabia",
-    area: "Palarivattom",
-    address: "Palarivattom Junction, Kochi – 682 025",
-    mapUrl: "#",
-    swiggyUrl: "#",
-    roofColor: "#3A2A1A",
-    wallColor: "#2E1E0E",
-  },
 ]
 
 export default function Locations() {
@@ -109,7 +59,7 @@ export default function Locations() {
       </div>
 
       {/* Grid */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="max-w-sm mx-auto grid grid-cols-1 gap-6">
         {OUTLETS.map((outlet, i) => (
           <motion.div
             key={outlet.id}
