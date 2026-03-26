@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import "./globals.css"
+import CursorGlow from "@/components/CursorGlow"
+import ScrollProgress from "@/components/ScrollProgress"
 
 export const metadata: Metadata = {
   title: "Real Arabia — Authentic Arabic Grills in Kochi, Kerala",
@@ -22,6 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="ra-root antialiased">
+        <ScrollProgress />
+        <CursorGlow />
         <main>{children}</main>
       </body>
     </html>

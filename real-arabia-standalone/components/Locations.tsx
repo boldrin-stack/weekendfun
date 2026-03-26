@@ -151,17 +151,39 @@ export default function Locations() {
 
 function LocationCard({ outlet }: { outlet: (typeof OUTLETS)[number] }) {
   const [hovered, setHovered] = useState(false)
+  const cardRef = useRef<HTMLDivElement>(null)
+
+  /* ── 3D tilt ──────────────────────────────────────── */
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = cardRef.current
+    if (!el) return
+    const { left, top, width, height } = el.getBoundingClientRect()
+    const x = (e.clientX - left) / width  - 0.5
+    const y = (e.clientY - top)  / height - 0.5
+    el.style.transform = `perspective(800px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) scale(1.02)`
+    el.style.transition = "transform 0.08s ease"
+  }
+  const handleMouseLeaveCard = () => {
+    const el = cardRef.current
+    if (!el) return
+    el.style.transform = "perspective(800px) rotateY(0deg) rotateX(0deg) scale(1)"
+    el.style.transition = "transform 0.45s ease"
+    setHovered(false)
+  }
 
   return (
     <div
+      ref={cardRef}
       className="ra-location-card ra-card flex flex-col cursor-pointer"
       onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeaveCard}
       style={{
         background: hovered
           ? "linear-gradient(135deg, var(--ra-smoke) 0%, #3d2020 100%)"
           : "var(--ra-smoke)",
         transition: "background 0.4s ease",
+        willChange: "transform",
       }}
     >
       {/* Illustrated façade */}

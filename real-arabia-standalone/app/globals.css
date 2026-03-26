@@ -258,11 +258,41 @@ body {
   background: linear-gradient(135deg, var(--ra-smoke) 0%, #3d2020 100%);
 }
 
+/* ── Flame flicker ──────────────────────────────────────── */
+@keyframes ra-flame {
+  0%, 100% { transform: scaleY(1) scaleX(1); opacity: 0.85; }
+  25%       { transform: scaleY(1.12) scaleX(0.88); opacity: 1; }
+  50%       { transform: scaleY(0.94) scaleX(1.06); opacity: 0.7; }
+  75%       { transform: scaleY(1.06) scaleX(0.94); opacity: 0.9; }
+}
+.ra-flame { animation: ra-flame 0.75s ease-in-out infinite; transform-origin: bottom center; }
+
+/* ── Heat shimmer ───────────────────────────────────────── */
+@keyframes ra-heat-shimmer {
+  0%, 100% { filter: blur(0px) brightness(1); }
+  50%       { filter: blur(1.5px) brightness(1.08); }
+}
+.ra-heat-shimmer { animation: ra-heat-shimmer 3s ease-in-out infinite; }
+
+/* ── Ripple on click ────────────────────────────────────── */
+@keyframes ra-ripple {
+  0%   { transform: scale(0); opacity: 0.6; }
+  100% { transform: scale(4); opacity: 0; }
+}
+.ra-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(201,151,58,0.4);
+  width: 40px; height: 40px;
+  pointer-events: none;
+  animation: ra-ripple 0.6s ease-out forwards;
+}
+
 /* ── Reduced motion overrides ───────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .ra-steam, .ra-lantern, .ra-spit-spin,
   .ra-star, .ra-star-2, .ra-star-3,
-  .ra-scooter, .ra-cloud {
+  .ra-scooter, .ra-cloud, .ra-flame, .ra-heat-shimmer {
     animation: none;
   }
 }

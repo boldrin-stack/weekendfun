@@ -88,9 +88,14 @@ const CATEGORIES: Category[] = [
 export default function MenuPreview() {
   const [activeTab, setActiveTab] = useState("shawarma")
   const sectionRef = useRef<HTMLDivElement>(null)
+  const tabRefs    = useRef<Record<string, HTMLButtonElement | null>>({})
   const isInView   = useInView(sectionRef, { once: true, margin: "-60px" })
 
   const activeCategory = CATEGORIES.find((c) => c.id === activeTab)!
+  const activeBtn = tabRefs.current[activeTab]
+  const inkStyle = activeBtn
+    ? { left: activeBtn.offsetLeft, width: activeBtn.offsetWidth }
+    : { left: 0, width: 0 }
 
   return (
     <section
@@ -117,15 +122,17 @@ export default function MenuPreview() {
           <span style={{ color: "var(--ra-gold)" }}>Fire</span>
         </motion.h2>
 
-        {/* Tab bar */}
+        {/* Tab bar with sliding ink indicator */}
         <div
-          className="flex gap-1 overflow-x-auto pb-2 mb-10 ra-hscroll"
+          className="relative flex gap-1 overflow-x-auto pb-2 mb-10 ra-hscroll"
           style={{ borderBottom: "1px solid rgba(201,151,58,0.2)" }}
         >
           {CATEGORIES.map((cat) => (
             <button
               key={cat.id}
+              ref={(el) => { tabRefs.current[cat.id] = el }}
               className={`ra-tab ${activeTab === cat.id ? "active" : ""}`}
+              style={{ borderBottom: "none" }}
               onClick={() => setActiveTab(cat.id)}
             >
               {cat.label}
@@ -137,6 +144,13 @@ export default function MenuPreview() {
               </span>
             </button>
           ))}
+          {/* Sliding gold ink bar */}
+          <motion.div
+            className="absolute bottom-0 h-[2px]"
+            style={{ background: "var(--ra-gold)", boxShadow: "0 0 8px rgba(201,151,58,0.6)" }}
+            animate={inkStyle}
+            transition={{ type: "spring", stiffness: 380, damping: 30 }}
+          />
         </div>
 
         {/* Tab content – animated swap */}

@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero"
+import StatsSection from "@/components/StatsSection"
 import SignatureDishes from "@/components/SignatureDishes"
 import StorySection from "@/components/StorySection"
 import Locations from "@/components/Locations"
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <StatsSection />
       <SignatureDishes />
       <StorySection />
       <Locations />

@@ -68,23 +68,33 @@ export default function Hero() {
             <LanternSVG delay={0.6} />
             <LanternSVG delay={1.2} />
           </div>
+          {/* Heat shimmer overlay */}
+          <div className="absolute bottom-0 left-0 right-0 h-48 ra-heat-shimmer pointer-events-none" />
+
           {/* Grill glow */}
           <div
             className="absolute bottom-10 left-1/2 -translate-x-1/2 w-40 h-6 rounded-full opacity-60"
             style={{
-              background:
-                "radial-gradient(ellipse, #FF6B00 0%, rgba(255,107,0,0) 70%)",
+              background: "radial-gradient(ellipse, #FF6B00 0%, rgba(255,107,0,0) 70%)",
               filter: "blur(6px)",
             }}
           />
+          {/* Flame cluster */}
+          <div className="absolute bottom-14 left-1/2 -translate-x-1/2 flex gap-1 items-end">
+            <FlameSVG height={28} delay={0}   color="#FF4500" />
+            <FlameSVG height={40} delay={0.1} color="#FF6B00" />
+            <FlameSVG height={52} delay={0.2} color="#FFA500" />
+            <FlameSVG height={44} delay={0.3} color="#FF6B00" />
+            <FlameSVG height={30} delay={0.4} color="#FF4500" />
+          </div>
           {/* Steam plumes */}
-          <div className="absolute bottom-16 left-[44%] flex gap-3">
+          <div className="absolute bottom-20 left-[44%] flex gap-3">
             <SteamPlume />
             <SteamPlume extraClass="ra-steam-2" />
             <SteamPlume extraClass="ra-steam-3" />
           </div>
           {/* Shawarma spit icon */}
-          <div className="absolute bottom-20 left-1/2 -translate-x-1/2 ra-spit-spin opacity-70">
+          <div className="absolute bottom-24 left-1/2 -translate-x-1/2 ra-spit-spin opacity-70">
             <ShawarmaSpit />
           </div>
         </motion.div>
@@ -245,6 +255,24 @@ export default function Hero() {
 }
 
 /* ── Small inline SVG helpers ─────────────────────────── */
+
+function FlameSVG({ height = 40, delay = 0, color = "#FF6B00" }: { height?: number; delay?: number; color?: string }) {
+  return (
+    <svg
+      width={height * 0.55} height={height}
+      viewBox="0 0 20 40"
+      className="ra-flame"
+      style={{ animationDelay: `${delay}s`, opacity: 0.85 }}
+    >
+      <path
+        d="M10 38 C4 30 2 22 6 16 C8 12 7 8 10 2 C13 8 12 12 14 16 C18 22 16 30 10 38Z"
+        fill={color}
+        style={{ filter: `drop-shadow(0 0 6px ${color})` }}
+      />
+      <path d="M10 34 C7 28 7 22 10 18 C13 22 13 28 10 34Z" fill="rgba(255,220,100,0.7)" />
+    </svg>
+  )
+}
 
 function LanternSVG({ delay = 0 }: { delay?: number }) {
   return (
