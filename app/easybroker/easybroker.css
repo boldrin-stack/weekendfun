@@ -1,0 +1,31 @@
+.eb-root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.eb-pin-wrap {
+  background: transparent !important;
+  border: none !important;
+}
+
+.eb-pin {
+  display: inline-block;
+  transform: translate(-50%, -100%);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.eb-pin-selected {
+  outline: 2px solid #fff;
+  outline-offset: 1px;
+}
+
+.eb-root .leaflet-container {
+  font-family: inherit;
+  background: #e2e8f0;
+}

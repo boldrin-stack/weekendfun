@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { EMAIL, TWITTER, TWITTER_URL, DOMAIN, TAGLINE, ORGANISER } from "@/lib/constants"
 
 const navLinks = [
@@ -8,7 +11,15 @@ const navLinks = [
   { label: "Sponsors", href: "/sponsors" },
 ]
 
+const STANDALONE_ROUTES = ["/real-arabia", "/easybroker"]
+
 export default function Footer() {
+  const pathname = usePathname()
+
+  if (STANDALONE_ROUTES.some((route) => pathname?.startsWith(route))) {
+    return null
+  }
+
   return (
     <footer className="bg-[#1A1A18] text-[#F6F5F1]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

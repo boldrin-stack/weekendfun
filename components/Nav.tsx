@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 
 const navLinks = [
@@ -11,7 +12,10 @@ const navLinks = [
   { label: "Sponsors", href: "/sponsors" },
 ]
 
+const STANDALONE_ROUTES = ["/real-arabia", "/easybroker"]
+
 export default function Nav() {
+  const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -20,6 +24,10 @@ export default function Nav() {
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  if (STANDALONE_ROUTES.some((route) => pathname?.startsWith(route))) {
+    return null
+  }
 
   const scrollToWaitlist = (e: React.MouseEvent) => {
     e.preventDefault()

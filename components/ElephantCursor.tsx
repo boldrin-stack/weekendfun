@@ -1,16 +1,22 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { usePathname } from "next/navigation"
+
+const STANDALONE_ROUTES = ["/real-arabia", "/easybroker"]
 
 export default function ElephantCursor() {
+  const pathname = usePathname()
   const [pos, setPos] = useState({ x: -300, y: -300 })
   const [dir, setDir] = useState(1)   // 1 = facing right, -1 = left
   const [idle, setIdle] = useState(false)
   const [visible, setVisible] = useState(false)
   const lastX = useRef(-1)
   const idleTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
+  const isStandaloneRoute = STANDALONE_ROUTES.some((route) => pathname?.startsWith(route))
 
   useEffect(() => {
+    if (isStandaloneRoute) return
     // Only show on non-touch devices
     if (window.matchMedia("(pointer: coarse)").matches) return
 
@@ -35,9 +41,9 @@ export default function ElephantCursor() {
       document.body.style.cursor = ""
       clearTimeout(idleTimer.current)
     }
-  }, [])
+  }, [isStandaloneRoute])
 
-  if (!visible) return null
+  if (!visible || isStandaloneRoute) return null
 
   // Ear flap keyframes via CSS animation injected once
   const earAnim = idle ? "ear-flap 0.8s ease-in-out infinite alternate" : "none"
