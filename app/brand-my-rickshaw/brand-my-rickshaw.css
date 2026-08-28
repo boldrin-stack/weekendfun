@@ -136,7 +136,7 @@
 .rw-frame {
   position: relative;
   flex: 1;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 1568 / 1003;
   border-radius: 16px;
   overflow: hidden;
   background: #efeae0;
