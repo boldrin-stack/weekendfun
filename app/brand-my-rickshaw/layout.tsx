@@ -3,7 +3,7 @@ import "@/app/globals.css"
 import "./brand-my-rickshaw.css"
 
 export const metadata: Metadata = {
-  title: "Brand My Rickshaw — Bid on Ad Space on India's Streets",
+  title: "Brand My Rickshaw: Bid on Ad Space on India's Streets",
   description:
     "One rickshaw, real streets, live bidding. Bid on ad slots across a branded autorickshaw and put your logo where the traffic already is.",
 }

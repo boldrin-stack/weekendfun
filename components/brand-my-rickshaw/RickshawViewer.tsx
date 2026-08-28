@@ -141,7 +141,7 @@ export default function RickshawViewer({ selectedSlotId, onSelectSlot }: Ricksha
                   onClick={() => selectSlotAndReveal(placement.slotId)}
                 >
                   <title>
-                    {`${slot.label} — ${formatInr(slot.currentBid || slot.startingBid)}`}
+                    {`${slot.label}: ${formatInr(slot.currentBid || slot.startingBid)}`}
                   </title>
                 </rect>
               )

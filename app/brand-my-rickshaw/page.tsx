@@ -51,7 +51,7 @@ export default function BrandMyRickshawPage() {
       <section className="bmr-hero">
         <div className="bmr-hero-copy">
           <p className="bmr-eyebrow">One rickshaw · Live citywide campaign</p>
-          <h1>Your brand, riding through the city — one bid at a time.</h1>
+          <h1>Your brand, riding through the city, one bid at a time.</h1>
           <p className="bmr-hero-sub">
             Spin the rickshaw, pick an ad slot, and bid live. Every panel is a real placement
             brands are actively competing for.
@@ -69,14 +69,14 @@ export default function BrandMyRickshawPage() {
       <section className="bmr-strip">
         <h2>What is Brand My Rickshaw?</h2>
         <p>
-          One autorickshaw, split into individually auctioned ad slots — front, rear, and both
+          One autorickshaw, split into individually auctioned ad slots: front, rear, and both
           sides. You bid on the exact panel you want, pay a small refundable deposit to confirm,
           and your logo goes live on the vehicle as it moves through the city.
         </p>
         <div className="bmr-feature-row">
           <div className="bmr-feature-card">
             <strong>Real vehicle, real routes</strong>
-            <p>One physical rickshaw driving real city streets — not a digital mockup.</p>
+            <p>One physical rickshaw driving real city streets, not a digital mockup.</p>
           </div>
           <div className="bmr-feature-card">
             <strong>Transparent live bidding</strong>
@@ -84,7 +84,7 @@ export default function BrandMyRickshawPage() {
           </div>
           <div className="bmr-feature-card">
             <strong>Refundable deposits</strong>
-            <p>Outbid? Your deposit is returned automatically — no manual refund requests.</p>
+            <p>Outbid? Your deposit is returned automatically, no manual refund requests.</p>
           </div>
         </div>
       </section>
@@ -123,7 +123,7 @@ export default function BrandMyRickshawPage() {
             >
               <div className="bmr-slot-card-top">
                 <span className={`bmr-pill ${slot.bidCount > 0 ? "bmr-pill-live" : "bmr-pill-open"}`}>
-                  {slot.bidCount > 0 ? "Live bidding" : "Open — no bids yet"}
+                  {slot.bidCount > 0 ? "Live bidding" : "Open (no bids yet)"}
                 </span>
                 <span className="bmr-slot-card-dims">{slot.dimensions}</span>
               </div>
@@ -149,7 +149,7 @@ export default function BrandMyRickshawPage() {
           <li>Enter your bid amount for the slot you want.</li>
           <li>We validate it against the minimum next-bid increment.</li>
           <li>A refundable deposit is calculated automatically.</li>
-          <li>Pay the deposit — your bid activates and shows in the live feed.</li>
+          <li>Pay the deposit: your bid activates and shows in the live feed.</li>
           <li>Outbid? Your deposit is refunded automatically.</li>
           <li>Auction ends → winner pays the remaining balance by the deadline.</li>
         </ol>
@@ -163,7 +163,7 @@ export default function BrandMyRickshawPage() {
           <li>A refundable deposit is required to confirm and activate any bid.</li>
           <li>Winning bidders must complete the balance within the payment deadline.</li>
           <li>If payment isn&apos;t completed in time, the slot is re-listed.</li>
-          <li>We make no guarantee of impressions or ROI — this is street advertising.</li>
+          <li>We make no guarantee of impressions or ROI; this is street advertising.</li>
         </ul>
       </section>
 

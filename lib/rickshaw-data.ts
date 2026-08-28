@@ -88,7 +88,7 @@ export const RICKSHAW_SLOTS: RickshawSlot[] = [
   },
   {
     id: "right-roof-upper",
-    label: "Right Roof Panel — Upper",
+    label: "Right Roof Panel (Upper)",
     dimensions: "44in × 22in",
     startingBid: 9000,
     currentBid: 14000,
@@ -99,7 +99,7 @@ export const RICKSHAW_SLOTS: RickshawSlot[] = [
   },
   {
     id: "right-roof-lower",
-    label: "Right Roof Panel — Lower",
+    label: "Right Roof Panel (Lower)",
     dimensions: "44in × 22in",
     startingBid: 9000,
     currentBid: 9000,
@@ -121,7 +121,7 @@ export const RICKSHAW_SLOTS: RickshawSlot[] = [
   },
   {
     id: "right-rear-upper",
-    label: "Right Rear Panel — Upper",
+    label: "Right Rear Panel (Upper)",
     dimensions: "24in × 11in",
     startingBid: 3500,
     currentBid: 3500,
@@ -132,7 +132,7 @@ export const RICKSHAW_SLOTS: RickshawSlot[] = [
   },
   {
     id: "right-rear-lower",
-    label: "Right Rear Panel — Lower",
+    label: "Right Rear Panel (Lower)",
     dimensions: "24in × 12in",
     startingBid: 3500,
     currentBid: 3500,
@@ -143,7 +143,7 @@ export const RICKSHAW_SLOTS: RickshawSlot[] = [
   },
   {
     id: "left-roof-upper",
-    label: "Left Roof Panel — Upper",
+    label: "Left Roof Panel (Upper)",
     dimensions: "44in × 22in",
     startingBid: 9000,
     currentBid: 9000,
@@ -154,7 +154,7 @@ export const RICKSHAW_SLOTS: RickshawSlot[] = [
   },
   {
     id: "left-roof-lower",
-    label: "Left Roof Panel — Lower",
+    label: "Left Roof Panel (Lower)",
     dimensions: "44in × 22in",
     startingBid: 9000,
     currentBid: 11000,
@@ -176,7 +176,7 @@ export const RICKSHAW_SLOTS: RickshawSlot[] = [
   },
   {
     id: "left-rear-upper",
-    label: "Left Rear Panel — Upper",
+    label: "Left Rear Panel (Upper)",
     dimensions: "24in × 11in",
     startingBid: 3500,
     currentBid: 3500,
@@ -187,7 +187,7 @@ export const RICKSHAW_SLOTS: RickshawSlot[] = [
   },
   {
     id: "left-rear-lower",
-    label: "Left Rear Panel — Lower",
+    label: "Left Rear Panel (Lower)",
     dimensions: "24in × 12in",
     startingBid: 3500,
     currentBid: 4200,
